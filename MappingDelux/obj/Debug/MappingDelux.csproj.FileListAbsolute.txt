@@ -1,0 +1,5 @@
+C:\Person Git\MappingDelux\MappingDelux\bin\Debug\MappingDelux.dll
+C:\Person Git\MappingDelux\MappingDelux\bin\Debug\MappingDelux.pdb
+C:\Person Git\MappingDelux\MappingDelux\obj\Debug\MappingDelux.csprojResolveAssemblyReference.cache
+C:\Person Git\MappingDelux\MappingDelux\obj\Debug\MappingDelux.dll
+C:\Person Git\MappingDelux\MappingDelux\obj\Debug\MappingDelux.pdb
