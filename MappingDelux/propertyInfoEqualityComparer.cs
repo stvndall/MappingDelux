@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace MappingDelux
 {
-    public class EqualityComparer : IEqualityComparer<PropertyInfo>
+    public class PropertyInfoEqualityComparer : IEqualityComparer<PropertyInfo>
     {
         public bool Equals(PropertyInfo x, PropertyInfo y)
         {
@@ -14,7 +14,12 @@ namespace MappingDelux
 
         public int GetHashCode(PropertyInfo obj)
         {
-            return obj.PropertyType.GetHashCode()*obj.PropertyType.Name.ToLowerInvariant().GetHashCode();
+            unchecked
+            {
+                return obj.PropertyType.GetHashCode()*obj.PropertyType.Name.ToLowerInvariant().GetHashCode();
+            }
         }
     }
+
+    
 }

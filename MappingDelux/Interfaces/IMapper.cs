@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Reflection;
 
-namespace MappingDelux
+namespace MappingDelux.Interfaces
 {
     internal interface IMapper
     {
         void Map(object input, object returned, IEnumerable<PropertyInfoMovemovent> propertyIntersection);
+        void Map(object input, object returned);
     }
 }

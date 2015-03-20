@@ -1,30 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Data;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices.ComTypes;
+using MappingDelux.Interfaces;
 
 namespace MappingDelux
 {
     public static class MappingDelux
     {
-        private static EqualityComparer equalityComparer = new EqualityComparer();
-        private static IMapper mapping =  new Mapper();
-        public static TReturned MapTo<TInput, TReturned>(this TInput mappingFrom) where TReturned : class, new() where TInput : class
+        private static IMapper mapping = new Mapper();
+        public static TReturned MapTo<TInput, TReturned>(this TInput mappingFrom)
+            where TReturned : class, new()
+            where TInput : class
         {
-            var mappingFromType = mappingFrom.GetType();
             var returning = new TReturned();
-            IEnumerable<PropertyInfoMovemovent> propertyIntersection = GetPropertyIntersection(mappingFromType, returning.GetType());
-            mapping.Map(mappingFrom, returning, propertyIntersection);
+            return MapTo(mappingFrom, returning);
+        }
+
+        private static TReturned MapTo<TInput, TReturned>(TInput mappingFrom, TReturned returning)
+            where TReturned : class, new() where TInput : class
+        {
+            mapping.Map(mappingFrom, returning);
             return returning;
         }
 
-        private static IEnumerable<PropertyInfoMovemovent> GetPropertyIntersection(Type mappingFromType, Type returningType)
+
+        public static IMapDefinition<TFrom> GetMappingPrimer<TFrom>(this TFrom fromClass)
         {
-            var listOfGetters = TypePropertyCache.GetPropertiesWithGetters(mappingFromType);
-            var listOfSetters = TypePropertyCache.GetPropertiesWithSetters(returningType);
-            return from getter in listOfGetters from setter in listOfSetters.Where(setter => equalityComparer.Equals(getter, setter)) 
-                   select new PropertyInfoMovemovent{Getter = getter, Setter = setter};
+            return new MapDefinition<TFrom>(fromClass);
         }
     }
 }

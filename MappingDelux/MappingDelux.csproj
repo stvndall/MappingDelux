@@ -39,11 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EqualityComparer.cs" />
+    <Compile Include="IMapDefinition.cs" />
+    <Compile Include="IMapExclude.cs" />
+    <Compile Include="IMapInclude.cs" />
+    <Compile Include="IMapWithMapPrimer.cs" />
+    <Compile Include="MapDefinition.cs" />
+    <Compile Include="MapExclude.cs" />
+    <Compile Include="MapInclude.cs" />
+    <Compile Include="propertyInfoEqualityComparer.cs" />
     <Compile Include="IMapper.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="MappingDelux.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyHelper.cs" />
+    <Compile Include="PropertySniffer.cs" />
     <Compile Include="TypePropertyCache.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

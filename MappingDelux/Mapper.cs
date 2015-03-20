@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
+using MappingDelux.Interfaces;
 
 namespace MappingDelux
 {
     internal class Mapper:IMapper
     {
+
         public void Map(object input, object returned, IEnumerable<PropertyInfoMovemovent> propertyIntersection)
         {
             foreach (var properties in propertyIntersection)
@@ -14,12 +16,14 @@ namespace MappingDelux
             }
         }
 
-        public void
-
-        
+        public void Map(object input, object returned)
+        {
+            var allPropertiesAlikeBetweenClasses = new PropertySniffer(input.GetType(), returned.GetType()).GetPropertyIntersection();
+            Map(input, returned, allPropertiesAlikeBetweenClasses);
+        }
     }
 
-    internal class PropertyInfoMovemovent
+    public class PropertyInfoMovemovent
     {
         public PropertyInfo Getter { get; set; }
         public PropertyInfo Setter { get; set; }
