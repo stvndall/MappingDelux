@@ -39,15 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMapDefinition.cs" />
-    <Compile Include="IMapExclude.cs" />
-    <Compile Include="IMapInclude.cs" />
-    <Compile Include="IMapWithMapPrimer.cs" />
+    <Compile Include="Interfaces\IMapDefinition.cs" />
+    <Compile Include="Interfaces\IMapExclude.cs" />
+    <Compile Include="Interfaces\IMapInclude.cs" />
+    <Compile Include="Interfaces\IMapWithMapPrimer.cs" />
     <Compile Include="MapDefinition.cs" />
     <Compile Include="MapExclude.cs" />
     <Compile Include="MapInclude.cs" />
     <Compile Include="propertyInfoEqualityComparer.cs" />
-    <Compile Include="IMapper.cs" />
+    <Compile Include="Interfaces\IMapper.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="MappingDelux.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
