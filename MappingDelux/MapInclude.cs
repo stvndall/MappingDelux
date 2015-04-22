@@ -9,15 +9,20 @@ namespace MappingDelux
 {
     public class MapInclude<TFrom> : IMapInclude<TFrom>
     {
-        private readonly TFrom _fromClass;
-        private readonly List<PropertyInfo> _propertyInfos;
-        private Mapper _mapper;
+        private readonly TFrom fromClass;
+        private readonly List<PropertyInfo> propertyInfos;
+        private readonly Mapper mapper;
 
         public MapInclude(TFrom fromClass, params PropertyInfo[] propertyInfos)
         {
-            _fromClass = fromClass;
-            _propertyInfos = propertyInfos.ToList();
-            _mapper = new Mapper();
+            this.fromClass = fromClass;
+            this.propertyInfos = propertyInfos.ToList();
+            mapper = new Mapper();
+        }
+
+        public PropertyInfo[] GetPropertiesThatWillMap()
+        {
+            return propertyInfos.ToArray();
         }
 
         public TTo Map<TTo>() where TTo : class, new()
@@ -29,15 +34,17 @@ namespace MappingDelux
 
         public void Map<TTo>(TTo mapTo) where TTo : class
         {
-            var intersection = new PropertySniffer(typeof (TFrom), typeof (TTo)).GetPropertyIntersection(_propertyInfos.ToArray());
+            var intersection = new PropertySniffer(typeof (TFrom), typeof (TTo)).GetPropertyIntersection(propertyInfos.ToArray());
 
-            _mapper.Map(_fromClass, mapTo, intersection);
+            mapper.Map(fromClass, mapTo, intersection);
         }
 
         public IMapInclude<TFrom> And<TReturn>(Expression<Func<TFrom, TReturn>> prop)
         {
-            _propertyInfos.Add(PropertyHelper<TFrom>.GetProperty(prop));
+            propertyInfos.Add(PropertyHelper<TFrom>.GetProperty(prop));
             return this;
         }
+
+        
     }
 }

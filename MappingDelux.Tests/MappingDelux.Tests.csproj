@@ -42,11 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\MapConfigSectionTests.cs" />
+    <Compile Include="MapIncludeTests.cs" />
     <Compile Include="MappingDelux.cs" />
+    <Compile Include="MappingExcludeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MappingDelux\MappingDelux.csproj">

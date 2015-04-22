@@ -1,8 +1,0 @@
-C:\Person Git\MappingDelux\MappingDelux.Tests\bin\Debug\MappingDelux.Tests.dll
-C:\Person Git\MappingDelux\MappingDelux.Tests\bin\Debug\MappingDelux.Tests.pdb
-C:\Person Git\MappingDelux\MappingDelux.Tests\bin\Debug\MappingDelux.dll
-C:\Person Git\MappingDelux\MappingDelux.Tests\bin\Debug\nunit.framework.dll
-C:\Person Git\MappingDelux\MappingDelux.Tests\bin\Debug\MappingDelux.pdb
-C:\Person Git\MappingDelux\MappingDelux.Tests\obj\Debug\MappingDelux.Tests.csprojResolveAssemblyReference.cache
-C:\Person Git\MappingDelux\MappingDelux.Tests\obj\Debug\MappingDelux.Tests.dll
-C:\Person Git\MappingDelux\MappingDelux.Tests\obj\Debug\MappingDelux.Tests.pdb

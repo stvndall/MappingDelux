@@ -7,21 +7,21 @@ namespace MappingDelux
 {
     public class MapDefinition<TFrom> : IMapDefinition<TFrom>
     {
-        private readonly TFrom _fromClass;
+        private readonly TFrom fromClass;
 
         public MapDefinition(TFrom fromClass)
         {
-            _fromClass = fromClass;
+            this.fromClass = fromClass;
         }
 
         public IMapInclude<TFrom> Only<TReturn>(Expression<Func<TFrom, TReturn>> prop)
         {
-            return  new MapInclude<TFrom>(_fromClass,GetPropertyInfo(prop));
+            return  new MapInclude<TFrom>(fromClass,GetPropertyInfo(prop));
         }
 
         public IMapExclude<TFrom> WithOut<TReturn>( Expression<Func<TFrom, TReturn>> prop)
         {
-            return new MapExclude<TFrom>(_fromClass, GetPropertyInfo(prop));
+            return new MapExclude<TFrom>(fromClass, GetPropertyInfo(prop));
         }
 
         private  PropertyInfo GetPropertyInfo<TReturn>(Expression<Func<TFrom, TReturn>> prop)

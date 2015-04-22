@@ -21,17 +21,6 @@ namespace MappingDelux
                 throw new InvalidOperationException();
             }
             return (PropertyInfo) expression.Member;
-            
-            switch (body.NodeType)
-            {
-                case ExpressionType.Convert:
-                    
-                case ExpressionType.MemberAccess:
-                    return (PropertyInfo)((MemberExpression)body).Member;
-                    break;
-                default:
-                    throw new InvalidOperationException();
-            }
         }
     }
 }
