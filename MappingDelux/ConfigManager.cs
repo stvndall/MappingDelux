@@ -15,8 +15,12 @@ namespace MappingDelux
 
         public void Globally<TOut>(Expression<Func<T, TOut>> func, string alias)
         {
-
             editConfig.AddToConfig<T>(new GlobalMappingConfigurationDetails(PropertyHelper<T>.GetProperty(func).Name, alias));
+        }
+
+        public void WhenMappingBetween<TMappingTo>(Action<IConfigManagerClassDirect<T, TMappingTo>> action)
+        {
+            action.Invoke(new ConfigManagerClassDirect<T, TMappingTo>());
         }
     }
 }

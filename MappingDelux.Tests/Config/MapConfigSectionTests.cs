@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using NUnit.Framework;
 
@@ -24,11 +25,36 @@ namespace MappingDelux.Tests.Config
                     y.Globally(bf => bf.InternalIdentification, "SystemID");
                 });
             });
-            var allConfig = MappingDelux.Config.GetAllConfig().ToArray();
+            var allConfig = MappingDelux.Config.GetAllConfig().Where(x => x.IsGlobal).ToArray();
             Assert.AreEqual(1, allConfig.Length);
             Assert.AreEqual("SystemID", allConfig.First().AliasAs);
             Assert.True(allConfig.First().IsGlobal);
             Assert.AreEqual("InternalIdentification", allConfig.First().OfficialName);
+        }
+        [Test]
+        public void For_Config_Given_SingleOneWayConfigurationConfig_ResultsIn_OneItemInConfig()
+        {
+            MappingDelux.Configure(x =>
+            {
+                x.For<BaseFake>(y =>
+                {
+                    y.WhenMappingBetween<TestFake2>(mapper =>
+                    {
+                        mapper.With(bf => bf.SystemWideSpread, tf2 => tf2.VarString);
+                    });
+                });
+            });
+            var allConfig = MappingDelux.Config.GetAllConfig().Where(x => x.GetType().Name == "SingleBindDetails").ToArray();
+            Assert.AreEqual(2, allConfig.Count());
+            var lhs = allConfig.FirstOrDefault(x => x.MappingTo<TestFake2>());
+            Assert.AreEqual("VarString", lhs.AliasAs);
+            Assert.False(lhs.IsGlobal);
+            Assert.AreEqual("SystemWideSpread", lhs.OfficialName);
+
+            var rhs = allConfig.FirstOrDefault(x => x.MappingTo<BaseFake>());
+            Assert.AreEqual("SystemWideSpread", rhs.AliasAs);
+            Assert.False(rhs.IsGlobal);
+            Assert.AreEqual("VarString", rhs.OfficialName);
         }
 
     }

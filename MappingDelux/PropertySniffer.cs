@@ -10,7 +10,7 @@ namespace MappingDelux
     {
         private readonly Type leftHandSideType;
         private readonly Type rightHandSideType;
-        private PropertyInfoEqualityComparer propertyInfoEqualityComparer = new PropertyInfoEqualityComparer();
+        private readonly PropertyInfoEqualityComparer propertyInfoEqualityComparer = new PropertyInfoEqualityComparer();
 
         public PropertySniffer(Type lhs, Type rhs)
         {
