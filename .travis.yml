@@ -1,0 +1,8 @@
+language: csharp
+solution: MappingDelux.sln
+script: 
+  - xbuild MappingDelux.sln
+before_install:
+  - sudo apt-get install nunit-console
+after_script:
+  - nunit-console tests/MappingDelux.Tests/bin/Debug/MappingDelux.Tests.dll
