@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7E41AAA-42F5-41AC-8467-4964AD8F380E}</ProjectGuid>
+    <ProjectGuid>{10A26522-8FF0-4F23-B8C6-0A5A81C7BB3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MappingDelux.Tests</RootNamespace>
-    <AssemblyName>MappingDelux.Tests</AssemblyName>
+    <RootNamespace>MappingDelux</RootNamespace>
+    <AssemblyName>MappingDelux</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\Dependencies\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,17 +39,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\MapConfigSectionTests.cs" />
-    <Compile Include="MapIncludeTests.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="ConfigManagerFactory.cs" />
+    <Compile Include="EqualityComparers\EqualityExtensionMethods.cs" />
+    <Compile Include="GlobalMappingConfigurationDetails.cs" />
+    <Compile Include="Interfaces\IConfigManager.cs" />
+    <Compile Include="Interfaces\IConfigManagerFactory.cs" />
+    <Compile Include="Interfaces\IMappingConfiguration.cs" />
+    <Compile Include="Interfaces\IMappingConfigurationDetails.cs" />
+    <Compile Include="Interfaces\IMapDefinition.cs" />
+    <Compile Include="Interfaces\IMapExclude.cs" />
+    <Compile Include="Interfaces\IMapInclude.cs" />
+    <Compile Include="Interfaces\IMapWithMapPrimer.cs" />
+    <Compile Include="MapDefinition.cs" />
+    <Compile Include="MapExclude.cs" />
+    <Compile Include="MapInclude.cs" />
+    <Compile Include="EqualityComparers\propertyInfoEqualityComparer.cs" />
+    <Compile Include="Interfaces\IMapper.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="MappingConfiguration.cs" />
     <Compile Include="MappingDelux.cs" />
-    <Compile Include="MappingExcludeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MappingDelux\MappingDelux.csproj">
-      <Project>{10a26522-8ff0-4f23-b8c6-0a5a81c7bb3e}</Project>
-      <Name>MappingDelux</Name>
-    </ProjectReference>
+    <Compile Include="PropertyHelper.cs" />
+    <Compile Include="PropertySniffer.cs" />
+    <Compile Include="TypePropertyCache.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

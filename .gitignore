@@ -5,9 +5,12 @@
 *.suo
 *.user
 *.sln.docstates
+*.iml
+*.userprefs
 
 # Build results
 
+.idea/
 debug/
 Release/
 x64/

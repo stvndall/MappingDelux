@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio 2012
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingDelux", "MappingDelux.csproj", "{10A26522-8FF0-4F23-B8C6-0A5A81C7BB3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingDelux", "src\MappingDelux\MappingDelux.csproj", "{10A26522-8FF0-4F23-B8C6-0A5A81C7BB3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingDelux.Tests", "..\MappingDelux.Tests\MappingDelux.Tests.csproj", "{C7E41AAA-42F5-41AC-8467-4964AD8F380E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingDelux.Tests", "tests\MappingDelux.Tests\MappingDelux.Tests.csproj", "{C7E41AAA-42F5-41AC-8467-4964AD8F380E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
