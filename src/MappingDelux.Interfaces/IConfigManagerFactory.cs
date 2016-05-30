@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MappingDelux
+namespace MappingDelux.Interfaces
 {
     public interface IConfigManagerFactory
     {

@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace MappingDelux
 {
-    public class TypePropertyCache
+    internal class TypePropertyCache
     {
         private static readonly ConcurrentDictionary<Type, PropertyInfo[]> allPropertiesForType = new ConcurrentDictionary<Type, PropertyInfo[]>();
         private static readonly ConcurrentDictionary<Type, PropertyInfo[]> allGettersForType = new ConcurrentDictionary<Type, PropertyInfo[]>();

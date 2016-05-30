@@ -1,4 +1,4 @@
-namespace MappingDelux
+﻿namespace MappingDelux.Interfaces
 {
     public interface IMappingConfigurationDetails
     {

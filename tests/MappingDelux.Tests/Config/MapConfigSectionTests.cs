@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Linq;
 using NUnit.Framework;
+using MappingDelux.Interfaces;
 
 namespace MappingDelux.Tests.Config
 {
@@ -11,7 +10,7 @@ namespace MappingDelux.Tests.Config
         [Test]
         public void For_Config_Given_noItems_ResultsIn_ConfigBeingEmpty()
         {
-            var allConfig = MappingDelux.Config.GetAllConfig();
+			var allConfig = MappingDelux.Config.GetAllConfig();
             Assert.IsFalse(allConfig.Any());
         }
 

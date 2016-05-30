@@ -54,6 +54,10 @@
       <Project>{10A26522-8FF0-4F23-B8C6-0A5A81C7BB3E}</Project>
       <Name>MappingDelux</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\src\MappingDelux.Interfaces\MappingDelux.Interfaces.csproj">
+      <Project>{FAF1F4EB-4D79-490F-9E00-B76085DD64D2}</Project>
+      <Name>MappingDelux.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

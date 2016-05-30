@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using MappingDelux.EqualityComparers;
+using MappingDelux.Interfaces;
 
 namespace MappingDelux
 {
@@ -19,7 +20,7 @@ namespace MappingDelux
         }
 
 
-        internal IEnumerable<PropertyInfoMovemovent> GetPropertyIntersection()
+        internal IEnumerable<IPropertyInfoMovemovent> GetPropertyIntersection()
         {
 
             var listOfGetters = TypePropertyCache.GetPropertiesWithGetters(leftHandSideType);
@@ -29,7 +30,7 @@ namespace MappingDelux
                    select new PropertyInfoMovemovent { Getter = getter, Setter = setter };
         }
         
-        internal IEnumerable<PropertyInfoMovemovent> GetPropertyIntersection(params PropertyInfo[] props)
+        internal IEnumerable<IPropertyInfoMovemovent> GetPropertyIntersection(params PropertyInfo[] props)
         {
 
             var listOfGetters = TypePropertyCache.GetPropertiesWithGetters(leftHandSideType).Intersect(props, propertyInfoEqualityComparer);
@@ -39,7 +40,7 @@ namespace MappingDelux
                    select new PropertyInfoMovemovent { Getter = getter, Setter = setter };
         }
 
-        internal IEnumerable<PropertyInfoMovemovent> GetPropertyIntersectionWithout(params PropertyInfo[] without)
+        internal IEnumerable<IPropertyInfoMovemovent> GetPropertyIntersectionWithout(params PropertyInfo[] without)
         {
             var listOfGetters = TypePropertyCache.GetPropertiesWithGetters(leftHandSideType).Except(without, propertyInfoEqualityComparer);
             var listOfSetters = TypePropertyCache.GetPropertiesWithSetters(rightHandSideType);
