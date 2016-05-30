@@ -2,8 +2,8 @@
 
 namespace MappingDelux.Interfaces
 {
-    public interface IMappingConfiguration
-    {
-        IEnumerable<IMappingConfigurationDetails> GetAllConfig();
-    }
+  public interface IMappingConfiguration
+  {
+    IEnumerable<IMappingConfigurationDetails> GetAllConfig();
+  }
 }

@@ -4,11 +4,10 @@ using System.Reflection;
 
 namespace MappingDelux.Interfaces
 {
-    public interface IMapInclude<TFrom> : IMapWithMapPrimer
-    {
-        IMapInclude<TFrom> And<TReturn>(Expression <Func<TFrom, TReturn>> prop);
+  public interface IMapInclude<TFrom> : IMapWithMapPrimer
+  {
+    IMapInclude<TFrom> And<TReturn>(Expression<Func<TFrom, TReturn>> prop);
 
-        PropertyInfo[] GetPropertiesThatWillMap();
-    }
-
+    PropertyInfo[] GetPropertiesThatWillMap();
+  }
 }
