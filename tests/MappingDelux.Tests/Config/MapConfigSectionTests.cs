@@ -11,13 +11,7 @@ namespace MappingDelux.Tests.Config
     public void For_Config_Given_noItems_ResultsIn_ConfigBeingEmpty()
     {
       var allConfig = MappingDelux.Config.GetAllConfig();
-      Assert.IsTrue(allConfig.Any());
-    }
-
-    [Test]
-    public void TestShouldFail()
-    {
-      Assert.Fail();
+      Assert.IsFalse(allConfig.Any());
     }
 
 
