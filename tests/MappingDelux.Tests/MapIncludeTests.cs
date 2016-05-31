@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Reflection;
 using MappingDelux.Interfaces;
+using MappingDelux.Tests.FakeClasses;
 using NUnit.Framework;
 
 namespace MappingDelux.Tests

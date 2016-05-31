@@ -10,6 +10,7 @@ namespace MappingDelux
     public string AliasAs { get; private set; }
     public string OfficialName { get; private set; }
     public int Priority { get; private set; }
+
     public SingleBindDetails(PropertyInfo lhs, string name, Type type)
     {
       OfficialName = lhs.Name;
@@ -18,11 +19,19 @@ namespace MappingDelux
       Priority = 1;
     }
 
-    public bool IsGlobal { get { return false; } }
-    public bool MappingTo<T>()
+    public bool IsGlobal
     {
-      return typeof (T) == forType;
+      get { return false; }
     }
 
+    public bool MappingTo<T>()
+    {
+      return MappingTo(typeof(T));
+    }
+
+    public bool MappingTo(Type mappingToType)
+    {
+      return mappingToType.IsAssignableFrom(forType);
+    }
   }
 }

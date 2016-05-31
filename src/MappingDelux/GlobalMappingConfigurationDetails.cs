@@ -3,7 +3,7 @@ using MappingDelux.Interfaces;
 
 namespace MappingDelux
 {
-  internal class GlobalMappingConfigurationDetails : IMappingConfigurationDetails
+	internal class GlobalMappingConfigurationDetails : IMappingConfigurationDetails
   {
     private Type typeToMapTo;
 
@@ -27,5 +27,10 @@ namespace MappingDelux
     {
       return true;
     }
+
+		public bool MappingTo (Type mappingToType)
+		{
+			return true;
+		}
   }
 }

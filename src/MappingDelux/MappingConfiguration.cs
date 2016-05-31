@@ -22,5 +22,12 @@ namespace MappingDelux
     {
       return ConfigDictinary.Values.Select(x => x).SelectMany(y => y);
     }
+
+    public IList<IMappingConfigurationDetails> GetMappingFor(Type mappingType)
+    {
+      List<IMappingConfigurationDetails> returningList;
+      ConfigDictinary.TryGetValue(mappingType, out returningList);
+      return returningList??new List<IMappingConfigurationDetails>();
+    }
   }
 }

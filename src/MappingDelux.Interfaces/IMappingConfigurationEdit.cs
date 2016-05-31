@@ -1,4 +1,7 @@
-﻿namespace MappingDelux.Interfaces
+﻿using System;
+using System.Collections.Generic;
+
+namespace MappingDelux.Interfaces
 {
   public interface IMappingConfigurationEdit : IMappingConfiguration
   {

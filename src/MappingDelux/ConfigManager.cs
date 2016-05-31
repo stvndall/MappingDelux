@@ -20,7 +20,9 @@ namespace MappingDelux
 
         public void WhenMappingBetween<TMappingTo>(Action<IConfigManagerClassDirect<T, TMappingTo>> action)
         {
-            action.Invoke(new ConfigManagerClassDirect<T, TMappingTo>());
+          var config = new ConfigManagerClassDirect<T, TMappingTo>();
+          action.Invoke(config);
+
         }
     }
 }
