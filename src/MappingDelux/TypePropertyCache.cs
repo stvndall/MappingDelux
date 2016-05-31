@@ -7,9 +7,6 @@ namespace MappingDelux
 {
   internal class TypePropertyCache
   {
-    private static readonly ConcurrentDictionary<Type, PropertyInfo[]> allPropertiesForType =
-      new ConcurrentDictionary<Type, PropertyInfo[]>();
-
     private static readonly ConcurrentDictionary<Type, PropertyInfo[]> allGettersForType =
       new ConcurrentDictionary<Type, PropertyInfo[]>();
 
@@ -28,12 +25,12 @@ namespace MappingDelux
 
     private static PropertyInfo[] FindAllGettersForType(Type typeToFind)
     {
-      return allPropertiesForType.GetOrAdd(typeToFind, FindPropertiesForType).Where(prop => prop.CanRead).ToArray();
+      return FindPropertiesForType(typeToFind).Where(prop => prop.CanRead).ToArray();
     }
 
     private static PropertyInfo[] FindAllSettersForType(Type typeToFind)
     {
-      return allPropertiesForType.GetOrAdd(typeToFind, FindPropertiesForType).Where(prop => prop.CanWrite).ToArray();
+      return FindPropertiesForType(typeToFind).Where(prop => prop.CanWrite).ToArray();
     }
 
     private static PropertyInfo[] FindPropertiesForType(Type type)
